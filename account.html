@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            margin-top: 100px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form action="login.php" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="occupation">Occupation:</label>
+                <select id="occupation" name="occupation" required>
+                    <option value="content_creator">Content Creator</option>
+                    <option value="fashion_designer">Fashion Designer</option>
+                    <option value="student">Student</option>
+                </select>
+            </div>
+            <!-- Additional fields based on occupation -->
+            <div id="content_creator_fields" style="display: none;">
+                <label for="content_creator_name">Name:</label>
+                <input type="text" id="content_creator_name" name="content_creator_name">
+                <label for="content_creator_work">Submit Your Work:</label>
+                <textarea id="content_creator_work" name="content_creator_work"></textarea>
+            </div>
+            <div id="fashion_designer_fields" style="display: none;">
+                <label for="fashion_designer_name">Name:</label>
+                <input type="text" id="fashion_designer_name" name="fashion_designer_name">
+                <label for="fashion_designer_institute">Institute:</label>
+                <input type="text" id="fashion_designer_institute" name="fashion_designer_institute">
+            </div>
+            <div id="student_fields" style="display: none;">
+                <label for="student_name">Name:</label>
+                <input type="text" id="student_name" name="student_name">
+                <label for="student_institute">Institute:</label>
+                <input type="text" id="student_institute" name="student_institute">
+            </div>
+            <!-- End additional fields -->
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="sign.html">Sign up</a></p>
+    </div>
+
+    <!-- JavaScript to show/hide additional fields based on occupation selection -->
+    <script>
+        const occupationSelect = document.getElementById('occupation');
+        const contentCreatorFields = document.getElementById('content_creator_fields');
+        const fashionDesignerFields = document.getElementById('fashion_designer_fields');
+        const studentFields = document.getElementById('student_fields');
+
+        occupationSelect.addEventListener('change', () => {
+            const selectedOccupation = occupationSelect.value;
+            contentCreatorFields.style.display = selectedOccupation === 'content_creator' ? 'block' : 'none';
+            fashionDesignerFields.style.display = selectedOccupation === 'fashion_designer' ? 'block' : 'none';
+            studentFields.style.display = selectedOccupation === 'student' ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>

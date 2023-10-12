@@ -1,0 +1,36 @@
+.row{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    justify-content:space-around;
+}
+.row{
+    flex-basis:50%;
+    min-width:300px;
+}
+.cloths{
+    align-items:center;
+    float:left;
+}
+image-row {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+.image-row img {
+    max-width: 100%; 
+    height: auto; 
+    margin-right: 10px; 
+}
+.btn{
+    display:inline-block;
+    background:#ff523b;
+    color:#fff;
+    padding :4px 30px;
+    margin:50px 0;
+    border-radius: 30px;
+
+}
+.btn :hover{
+    background: #563434;
+}
